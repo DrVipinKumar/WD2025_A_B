@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const setActive = ({ isActive }) => {
     return {
-      color: isActive ? "red" : "black",
+      color: isActive ? "yellow" : "white",
       fontWeight: isActive ? "bold" : "",
     };
   };
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+      <div className="container-fluid bg-primary">
+        <NavLink className="navbar-brand text-light" to="/">
           ReactJS
         </NavLink>
         <button
@@ -48,6 +48,11 @@ const Header = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/counter" style={setActive}>
                 Counter
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/lang" style={setActive}>
+                Languages
               </NavLink>
             </li>
           </ul>

@@ -1,11 +1,20 @@
 import { NavLink } from "react-router-dom";
 const Header = () => {
+  const setActive = ({ isActive }) => {
+    return {
+      color: isActive ? "yellow" : "white",
+      fontWeight: isActive ? "bold" : "",
+    };
+  };
   return (
     <div>
-      <nav className="navbar  bg-dark navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar rounded bg-primary navbar-expand-lg"
+        data-bs-theme="dark"
+      >
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Navbar
+            React JS
           </NavLink>
           <button
             className="navbar-toggler"
@@ -21,22 +30,27 @@ const Header = () => {
           <div id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
+                <NavLink
+                  className="nav-link"
+                  style={setActive}
+                  aria-current="page"
+                  to="/"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/counter">
+                <NavLink className="nav-link" style={setActive} to="/counter">
                   Counter
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/form">
+                <NavLink className="nav-link" style={setActive} to="/form">
                   Register
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/table" >
+                <NavLink className="nav-link" style={setActive} to="/table">
                   Table
                 </NavLink>
               </li>

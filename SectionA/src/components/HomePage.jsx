@@ -1,8 +1,7 @@
-import React from "react";
 
 const HomePage = () => {
   return (
-    <div>
+    <div style={{height:"80vh"}}>
       <h1>KIET MCA Home Page</h1>
     </div>
   );

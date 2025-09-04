@@ -8,7 +8,7 @@ const Counter = (props) => {
         }
       }
   return (
-      <div>
+      <div style={{height:"80vh"}}>
           <button className="btn btn-primary" onClick={onDecrement}>Decrement</button>
           <b className="m-3 btn btn-warning" style={checkCSS()}>
               {count===0?"Zero":count}

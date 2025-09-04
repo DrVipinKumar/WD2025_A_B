@@ -5,17 +5,19 @@ import Counter from "./components/Counter"
 import Table from "./components/Table"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Error from "./components/Error"
 
 const App = () => {
  
   return (
-    <div className='container mt-3'>
+    <div className='container'>
       <Header/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/counter" element={<Counter count={4}/>} />
         <Route path="/form" element={<FormHandling/>} />
         <Route path="/table" element={<Table n={6} />} />
+        <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>
     </div>
