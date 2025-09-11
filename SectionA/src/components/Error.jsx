@@ -9,8 +9,8 @@ const Error = () => {
       style={{ height: "80vh" }}
     >
       <h2 className="text-danger">404 Error: Page not found!</h2>
-      <button className="btn btn-success" onClick={() => navigate("/")}>
-        Go to Home
+      <button className="btn btn-success" onClick={() => navigate("/table")}>
+        Go to Table
       </button>
     </div>
   );

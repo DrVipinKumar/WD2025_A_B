@@ -6,6 +6,8 @@ import Table from "./components/Table"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Error from "./components/Error"
+import Language from "./components/Language"
+import UseEffectInfo from "./components/UseEffectInfo"
 
 const App = () => {
  
@@ -17,6 +19,9 @@ const App = () => {
         <Route path="/counter" element={<Counter count={4}/>} />
         <Route path="/form" element={<FormHandling/>} />
         <Route path="/table" element={<Table n={6} />} />
+        <Route path="/table/:num" element={<Table />} />
+        <Route path="/query" element={<Language/>} />
+        <Route path="/useeffect" element={<UseEffectInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>

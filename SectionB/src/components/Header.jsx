@@ -55,6 +55,21 @@ const Header = () => {
                 Languages
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/query" style={setActive}>
+                Query
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/useeffect" style={setActive}>
+                UseEffect
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/usecontext" style={setActive}>
+                UseContext
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

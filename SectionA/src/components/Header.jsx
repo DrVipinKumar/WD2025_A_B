@@ -54,6 +54,16 @@ const Header = () => {
                   Table
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" style={setActive} to="/query">
+                  Language
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" style={setActive} to="/useeffect">
+                  Use Effect
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

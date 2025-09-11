@@ -9,6 +9,10 @@ import Error from "./components/Error";
 import Lang from "./components/Lang";
 import JavaCom from "./components/JavaCom";
 import PythonCom from "./components/PythonCom";
+import QueryInfo from "./components/QueryInfo";
+import UseEffectInfo from "./components/UseEffectInfo";
+import UseContextInfo from "./components/UseContextInfo";
+
 const App = () => {
   return (
     <div className="container">
@@ -24,6 +28,9 @@ const App = () => {
           <Route path="java" element={<JavaCom />}/>
           <Route path="python" element={<PythonCom />}/>
         </Route>
+        <Route path="/query" element={<QueryInfo/>} />
+        <Route path="/useeffect" element={<UseEffectInfo/>} />
+        <Route path="/usecontext" element={<UseContextInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>
