@@ -12,6 +12,9 @@ import PythonCom from "./components/PythonCom";
 import QueryInfo from "./components/QueryInfo";
 import UseEffectInfo from "./components/UseEffectInfo";
 import UseContextInfo from "./components/UseContextInfo";
+import UseReducerInfo from "./components/UseReducerInfo";
+import UseMemoInfo from "./components/UseMemoInfo";
+import UseCallbackInfo from "./components/UseCallbackInfo";
 
 const App = () => {
   return (
@@ -31,6 +34,9 @@ const App = () => {
         <Route path="/query" element={<QueryInfo/>} />
         <Route path="/useeffect" element={<UseEffectInfo/>} />
         <Route path="/usecontext" element={<UseContextInfo/>} />
+        <Route path="/usereducer" element={<UseReducerInfo/>} />
+        <Route path="/usememo" element={<UseMemoInfo/>} />
+        <Route path="/usecallback" element={<UseCallbackInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>

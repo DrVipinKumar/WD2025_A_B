@@ -64,6 +64,16 @@ const Header = () => {
                   Use Effect
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" style={setActive} to="/usecontext">
+                  Use Context
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" style={setActive} to="/usereducer">
+                  Use Reducer
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

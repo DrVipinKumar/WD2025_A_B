@@ -8,6 +8,8 @@ import Footer from "./components/Footer"
 import Error from "./components/Error"
 import Language from "./components/Language"
 import UseEffectInfo from "./components/UseEffectInfo"
+import UseContextInfo from "./components/UseContextInfo"
+import UseReducerInfo from "./components/UseReducerInfo"
 
 const App = () => {
  
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/table/:num" element={<Table />} />
         <Route path="/query" element={<Language/>} />
         <Route path="/useeffect" element={<UseEffectInfo/>} />
+        <Route path="/usecontext" element={<UseContextInfo/>} />
+        <Route path="/usereducer" element={<UseReducerInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>

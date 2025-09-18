@@ -8,7 +8,10 @@ const UseEffectInfo = () => {
     }
     useEffect(() => {
         console.log(`Counter:${count}`);
-    },[name]);
+        return () => {
+            console.log(`Counter Stop`);
+        }
+    },[count]);
     useEffect(() => {
         console.log(`Render everytime`);
     });
@@ -16,10 +19,10 @@ const UseEffectInfo = () => {
       <div style={{height:"80vh"}}    >
           <h2>Use Effect Example</h2>
           <h2>Counter:{count}</h2>
-          <button className="btn btn-primary"
+           <button className="btn btn-primary"
               onClick={onIncrement}>
               Increment
-          </button>
+          </button> 
       </div>
   )
 }
