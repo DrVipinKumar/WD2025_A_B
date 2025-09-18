@@ -15,6 +15,7 @@ import UseContextInfo from "./components/UseContextInfo";
 import UseReducerInfo from "./components/UseReducerInfo";
 import UseMemoInfo from "./components/UseMemoInfo";
 import UseCallbackInfo from "./components/UseCallbackInfo";
+import UseRefInfo from "./components/UseRefInfo";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/usereducer" element={<UseReducerInfo/>} />
         <Route path="/usememo" element={<UseMemoInfo/>} />
         <Route path="/usecallback" element={<UseCallbackInfo/>} />
+        <Route path="/useref" element={<UseRefInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>
