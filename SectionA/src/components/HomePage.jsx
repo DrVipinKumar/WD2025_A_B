@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CardProduct from "./CardProduct";
 
 const HomePage = () => {
   const [qData, setQData] = useState([]);
@@ -10,31 +11,25 @@ const HomePage = () => {
   }, []);
   console.log(qData);
   return (
-    <div>
-      <h1>Quotes API</h1>
-      <table className="table table-warning">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Add</th>
-          </tr>
-        </thead>
-        <tbody>
-          {qData.map(row => (
-            <tr key={row.id}>
-            <th>{row.id}</th>
-            <th>{row.title}</th>
-              <th><img src={row.images[0]} width={200} height={200}></img></th>
-              <th><button>Add to Cart</button></th>
-            </tr>   
-          
-            
-      ))}
-          </tbody>
-      </table>
-    </div>
+    <div className="container d-flex flex-column justify-content-center">
+      <h2>Select your item</h2>
+      <div className="row ">
+      {qData.map((row) => (
+        <div key={row.id} className="col-md-4 mb-2" >
+          <CardProduct
+            id={row.id}
+            title={row.title}
+            price={row.price}
+            discount={row.discountPercentage}
+            rating={row.rating}
+            image={row.images[0]}
+          />
+         
+        </div>
+      )        
+        )}
+     </div>
+     </div>
   );
 };
 

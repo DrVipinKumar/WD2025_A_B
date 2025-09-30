@@ -1,32 +1,32 @@
 import { useEffect, useState } from "react"
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [quotes, setQuotes] = useState([]);
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/quotes")
       .then(response => response.json())
-      .then(pdata => setProducts(pdata.products))
+      .then(qdata => setQuotes(qdata.quotes))
      
   }, []);
   const deleteQuotes = (id) => {
-    setProducts(products.filter((item) => item.id != id));
+    setQuotes(quotes.filter((item) => item.id != id));
   }
-  console.log(products);
+  console.log(quotes);
   return (
       <div className='d-flex flex-column'>
       <h4>Quotes Information</h4>
       <table className="table table-warning">
         <thead className="table-dark">
-          <tr><th>ID</th><th>Product Info</th><th>Image</th>
+          <tr><th>ID</th><th>Quotes</th><th>Author</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {products.map(item => (
+          {quotes.map(item => (
         <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td><img src={item.images[0]} width={200}></img></td>
+              <td>{item.quote}</td>
+              <td>{item.author}</td>
               <td><button
                 onClick={() => deleteQuotes(item.id)} className="btn btn-danger">Delete</button></td>
         </tr>
