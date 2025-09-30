@@ -1,8 +1,32 @@
+import { useEffect, useState } from "react"
 
 const Home = () => {
+  const [quotes, setQuotes] = useState([]);
+  useEffect(() => {
+    fetch("https://dummyjson.com/quotes")
+      .then(response => response.json())
+      .then(qdata => setQuotes(qdata.quotes))
+     
+  }, []);
+  console.log(quotes);
   return (
-      <div className='d-flex' style={{height:"80vh"}}>
-          <h4>Home Page</h4>
+      <div className='d-flex flex-column'>
+      <h4>Quotes Information</h4>
+      <table className="table table-warning">
+        <thead className="table-dark">
+          <tr><th>ID</th><th>Quotes</th><th>Author</th></tr>
+        </thead>
+        <tbody>
+          {quotes.map(item => (
+        <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.quote}</td>
+              <td>{item.author}</td>
+        </tr>
+       
+      ))}
+          </tbody>
+        </table>
       </div>
   )
 }

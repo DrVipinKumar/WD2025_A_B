@@ -25,6 +25,11 @@ const App = () => {
         <Route path="/table" element={<Table n={6} />} />
         <Route path="/table/:num" element={<Table />} />
         <Route path="/query" element={<Language/>} />
+        <Route path="/useeffect" element={<UseEffectInfo/>} />
+        <Route path="/usecontext" element={<UseContextInfo/>} />
+        <Route path="/usereducer" element={<UseReducerInfo/>} />
+        <Route path="/usememo" element={<UseMemoInfo/>} />
+        <Route path="/usecallback" element={<UseCallbackInfo/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
       <Footer/>
