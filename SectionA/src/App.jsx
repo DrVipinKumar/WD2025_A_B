@@ -7,11 +7,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Error from "./components/Error"
 import Language from "./components/Language"
-import UseEffectInfo from "./components/UseEffectInfo"
-import UseContextInfo from "./components/UseContextInfo"
-import UseReducerInfo from "./components/UseReducerInfo"
-import UseMemoInfo from "./components/UseMemoInfo"
-import UseCallbackInfo from "./components/UseCallbackInfo"
+
 
 const App = () => {
  
