@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+
 const HomePage = () => {
   const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({
@@ -12,27 +12,35 @@ const HomePage = () => {
     console.log(e.target.name);
   }
   const addUser = () => {
-    axios.post(`http://localhost:5000/users`,formData)
-    .
-      then(response => console.log(JSON.stringify(response.data))).
+    fetch(`http://localhost:5000/users`, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    }).
+      then(response => response.json()).
+      then(data => alert(JSON.stringify(data))).
       catch(error => console.log(error));
-    alert("User Inserted!");
   }
   const updateUser = () => {
-    axios.put(`http://localhost:5000/users/${formData.id}`, formData)
-    .
-      then(() => alert("Update User!")).
+    fetch(`http://localhost:5000/users/${formData.id}`, {
+      method: "PUT",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    }).
+      then(response => response.json()).
+      then(() => alert("Update User")).
       catch(error => console.log(error));
   }
   const deleteUser = async () => {
     try {
-      let info = axios.delete(`http://localhost:5000/users/${formData.id}`);
-      console.log(info.data);
-      alert("User Deleted!");
+     let info=  await fetch(`http://localhost:5000/users/${formData.id}`, {
+      method: "DELETE",
+      headers: { 'Content-Type': 'application/json' },
+     })
+      console.log(info.json());
     } catch (error) {
       console.log(error);
     }
-    
     // fetch(`http://localhost:5000/users/${formData.id}`, {
     //   method: "DELETE",
     //   headers: { 'Content-Type': 'application/json' },
@@ -44,8 +52,8 @@ const HomePage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        let dataInfo = await axios.get("http://localhost:5000/users");
-        let data = await dataInfo.data;
+        let dataInfo = await fetch("http://localhost:5000/users");
+        let data = await dataInfo.json();
         setUsers(data)
          
       } catch (error) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios";
+
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({
@@ -11,20 +11,31 @@ const Home = () => {
      setFormData({...formData,[event.target.name]:event.target.value })
   }
   const deleteUser = () => {
-    axios.delete(`http://localhost:5000/users/${formData.id}`).
-       then(data => console.log(data));
+    fetch(`http://localhost:5000/users/${formData.id}`, {
+      method: "DELETE",
+      headers:{"Content-Type":"application/json"}
+    }).
+      then(response => response.json()).
+      then(data => console.log(data));
     alert("User deleted");
   }
   const updateUser = () => {
-    axios.put(`http://localhost:5000/users/${formData.id}`, formData)
-    .then(response =>console.log(response.data))
-      .catch(error=>console.log(error))
+    fetch(`http://localhost:5000/users/${formData.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body:JSON.stringify(formData)
+    }).then(response => response.json())
+      .then(data => console.log(data))
     alert("Users updated");
   }
   const addUser = async() => {
     try {
-      let response = await axios.post("http://localhost:5000/users", formData);
-      let data = await response.data;
+      let response = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: { "Context-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+      let data = await response.json();
       console.log(data);
       alert("Users inserted");
     } catch (error) {
@@ -35,8 +46,8 @@ const Home = () => {
   useEffect(() => {
     const getUser = async() => {
       try {
-        let response = await axios.get("http://localhost:5000/users");
-        let data = await response.data;
+        let response = await fetch("http://localhost:5000/users");
+        let data = await response.json();
         setUsers(data)
     } catch (error) {
       console.log(error);
