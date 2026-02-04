@@ -7,15 +7,17 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Error from "./components/Error"
 import Language from "./components/Language"
-
-
+import Login from "./components/Login"
+import Register from "./components/Register"
 const App = () => {
  
   return (
     <div className='container'>
       <Header/>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<Login/>} />
+        <Route path="/user" element={<HomePage/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/counter" element={<Counter count={4}/>} />
         <Route path="/form" element={<FormHandling/>} />
         <Route path="/table" element={<Table n={6} />} />

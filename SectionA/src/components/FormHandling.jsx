@@ -1,4 +1,6 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FormHandling = () => {
   const [name, setName] = useState("");
@@ -9,6 +11,7 @@ const FormHandling = () => {
   const [country, setCountry] = useState("");
   const [confirm, setConfirm] = useState(false);
   const [records, setRecords] = useState([]);
+  const navigate = useNavigate();
   const addLanguage = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -35,6 +38,11 @@ const FormHandling = () => {
     };
     setRecords([...records, record]);
   };
+  useEffect(() => {
+    axios.get("http://localhost:3000/validate", {
+      withCredentials:true
+    }).then().catch(()=>navigate("/"))
+  },[]);
   return (
     <div
       className="d-flex flex-column justiy-content-center

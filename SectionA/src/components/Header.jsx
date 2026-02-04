@@ -40,13 +40,13 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" style={setActive} to="/counter">
-                  Counter
+                <NavLink className="nav-link" style={setActive} to="/user">
+                  User
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" style={setActive} to="/form">
-                  Register
+                  ValidateForm
                 </NavLink>
               </li>
               <li className="nav-item">
